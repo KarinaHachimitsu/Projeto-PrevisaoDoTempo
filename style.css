@@ -36,3 +36,7 @@ border: 1px solid rgba(255, 255, 255, 0.34);
 .input{
   font-size: 30px;
 }
+.tituloResultado{
+  font-size: 50px;
+  display: flex;
+}

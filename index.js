@@ -1,173 +1,228 @@
 const estados = [
-  AC = {
+  (AC = {
     cidade: 'Rio Branco',
     estado: 'Acre',
     regiao: 'Norte',
     temp: 25.2
-  },
-  AL = {
+  }),
+  (AL = {
     cidade: 'Maceió',
     estado: 'Alagoas',
     regiao: 'Nordeste',
     temp: 26.7
-  },
-  AP = {
+  }),
+  (AP = {
     cidade: 'Macapá',
     estado: 'Amapá',
     regiao: 'Norte',
     temp: 26.5
-  },
-  AM = {
+  }),
+  (AM = {
     cidade: 'Manaus',
     estado: 'Amazonas',
     regiao: 'Norte',
     temp: 26.3
-  },
-  BA = {
+  }),
+  (BA = {
     cidade: 'Salvador',
     estado: 'Bahia',
     regiao: 'Nordeste',
     temp: 26.4
-  },
-  CE = {
+  }),
+  (CE = {
     cidade: 'Fortaleza',
     estado: 'Ceará',
     regiao: 'Nordeste',
     temp: 27.6
-  },
-  DF = {
+  }),
+  (DF = {
     cidade: 'Brasília[',
     estado: 'Distrito Federal',
     regiao: 'Centro-Oeste',
     temp: 20.5
-  },
-  ES = {
+  }),
+  (ES = {
     cidade: 'Vitória',
     estado: 'Espírito Santo',
     regiao: 'Sudeste',
     temp: 25.8
-  },
-  GO = {
+  }),
+  (GO = {
     cidade: 'Goiânia',
     estado: 'Goiás',
     regiao: 'Centro-Oeste',
     temp: 23.2
-  },
-  MA = {
+  }),
+  (MA = {
     cidade: 'São Luís',
     estado: 'Maranhão',
     regiao: 'Nordeste',
     temp: 27.5
-  },
-  MT = {
+  }),
+  (MT = {
     cidade: 'Cuiabá',
     estado: 'Mato Grosso',
     regiao: 'Centro-Oeste',
     temp: 26.8
-  },
-  MS = {
+  }),
+  (MS = {
     cidade: 'Campo Grande',
     estado: 'Mato Grosso do Sul',
     regiao: 'Centro-Oeste',
     temp: 24.6
-  },
-  MG = {
+  }),
+  (MG = {
     cidade: 'Belo Horizonte',
     estado: 'Minas Gerais',
     regiao: 'Sudeste',
     temp: 22.5
-  },
-  PA = {
+  }),
+  (PA = {
     cidade: 'Belém',
     estado: 'Pará',
     regiao: 'Norte',
     temp: 26.4
-  },
-  PB = {
+  }),
+  (PB = {
     cidade: 'João Pessoa',
     estado: 'Paraíba',
     regiao: 'Nordeste',
     temp: 27.5
-  },
-  PR = {
+  }),
+  (PR = {
     cidade: 'Curitiba',
     estado: 'Paraná',
     regiao: 'Sul',
     temp: 20.4
-  },
-  PE = {
+  }),
+  (PE = {
     cidade: 'Recife',
     estado: 'Pernambuco',
     regiao: 'Nordeste',
     temp: 26.5
-  },
-  PI = {
+  }),
+  (PI = {
     cidade: 'Teresina',
     estado: 'Piauí',
     regiao: 'Nordeste',
     temp: 27.2
-  },
-  RJ = {
+  }),
+  (RJ = {
     cidade: 'Rio de Janeiro',
     estado: 'Rio de Janeiro',
     regiao: 'Sudeste',
     temp: 26.6
-  },
-  RN = {
+  }),
+  (RN = {
     cidade: 'Natal',
     estado: 'Rio Grande do Norte',
     regiao: 'Nordeste',
     temp: 27.3
-  },
-  RS = {
+  }),
+  (RS = {
     cidade: 'Porto Alegre',
     estado: 'Rio Grande do Sul',
     regiao: 'Sul',
     temp: 24.8
-  },
-  RO = {
+  }),
+  (RO = {
     cidade: 'Porto Velho',
     estado: 'Rondônia',
     regiao: 'Norte',
     temp: 26.5
-  },
-  RR = {
+  }),
+  (RR = {
     cidade: 'Boa Vista',
     estado: 'Roraima',
     regiao: 'Norte',
     temp: 28.1
-  },
-  SC = {
+  }),
+  (SC = {
     cidade: 'Florianópolis',
     estado: 'Santa Catarina',
     regiao: 'Sul',
     temp: 24.5
-  },
-  SP = {
+  }),
+  (SP = {
     cidade: 'São Paulo',
     estado: 'São Paulo',
     regiao: 'Sudeste',
     temp: 21.5
-  },
-  SE = {
+  }),
+  (SE = {
     cidade: 'Aracajú',
     estado: 'Sergipe',
     regiao: 'Nordeste',
     temp: 27.3
-  },
-  TO = {
+  }),
+  (TO = {
     cidade: 'Palmas',
     estado: 'Tocantins',
     regiao: 'Norte',
     temp: 24.9
-  }
+  })
 ]
 
-const h1 = document.querySelector('.h1')
 const input = document.querySelector('.input')
 const btn = document.querySelector('.btn')
 const divResult = document.createElement('div')
 divResult.className = 'teste'
 const sectionResult = document.querySelector('.resultado')
 sectionResult.appendChild(divResult)
+
+let h2 = document.createElement('h2')
+divResult.appendChild(h2)
+h2.className = 'tituloResultado'
+
+let pTemp = document.createElement('p')
+divResult.appendChild(pTemp)
+pTemp.className = 'temp'
+
+let pRegiao = document.createElement('p')
+divResult.appendChild(pRegiao)
+pRegiao.className = 'regiao'
+
+let pEstado = document.createElement('p')
+divResult.appendChild(pEstado)
+pRegiao.className = 'estado'
+
 //divResult é uma const por isso não se usa ''
+let cidadeResultado = ''
+let estadoResultado = ''
+let regiaoResultado = ''
+let tempResultado = 0
+
+
+
+function mensagem(cidade, estado, regiao, temp) {
+  (
+    `Em ${cidade} capital do ${estado} na região ${regiao} faz ${temp} °C. `
+  )
+}
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Template_literals
+
+function comparar() {
+  console.log('Deu Certo!')
+  //O for está percorrendo a Array
+  for (let index = 0; index < estados.length; index += 1) {
+    if (input.value === estados[index].cidade) {
+      cidadeResultado = estados[index].cidade
+      tempResultado = estados[index].temp
+      regiaoResultado = estados[index].regiao
+      estadoResultado = estados[index].estado
+
+      h2.innerHTML = cidadeResultado
+      pTemp.innerHTML = tempResultado
+      pRegiao.innerHTML = regiaoResultado
+      pEstado.innerHTML = estadoResultado
+
+      mensagem(
+        estados[index].cidade,
+        estados[index].estado,
+        estados[index].regiao,
+        estados[index].temp
+      )
+    }
+  }
+  console.log(cidadeResultado)
+}
