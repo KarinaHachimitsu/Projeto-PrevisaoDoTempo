@@ -1,6 +1,7 @@
+
 *{
   font-family: 'Dancing Script', cursive;
-  align-items: center;
+  font-family: 'Roboto', sans-serif;
   justify-content: center;
 }
 
@@ -9,14 +10,14 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5717ac; 
+  background-color: #4B4B4B; 
 }
 .teste{  
 width: 600px;
-height: 600px;
+height: 200px;
 top: 100px;
 left: 700px;
-background: rgba(255, 255, 255, 0.24);
+background: #131212;
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(8.4px);
@@ -29,14 +30,26 @@ border: 1px solid rgba(255, 255, 255, 0.34);
 .btn{
   margin-bottom: 40px;
   font-size: 30px;
-  background-color: #696969;
+  background-color: #131212;
   border-radius: 10px;
   
 }
 .input{
-  font-size: 30px;
+  height: 46px;
+  width: 400px;
+
+  border-radius: 30px;
 }
 .tituloResultado{
-  font-size: 50px;
-  display: flex;
+  font-size: 35px;
+ display: flex;
+}
+
+.alinha{
+  align-items: center;
+}
+.textoResultado{
+ display: flex;
+ align-items: center;
+ color: #4B4B4B;
 }

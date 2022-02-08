@@ -175,9 +175,9 @@ divResult.appendChild(h2)
 h2.className = 'tituloResultado'
 
 let textoResultado = document.createElement('p')
+textoResultado.classList.add('TextResult')
 divResult.appendChild(textoResultado)
 textoResultado.className = 'textoResultado'
-
 
 //divResult é uma const por isso não se usa ''
 let cidadeResultado = ''
@@ -185,28 +185,27 @@ let estadoResultado = ''
 let regiaoResultado = ''
 let tempResultado = 0
 
-
-
-
 function mensagem(cidade, estado, regiao, temp) {
-  
-   textoResultado.innerHTML = `Em ${cidade} capital do ${estado} na região ${regiao} faz ${temp} °C. `
-  
-      h2.innerHTML = cidadeResultado
-      
+  textoResultado.innerHTML = `Em ${cidade} capital do ${estado} na região ${regiao} faz ${temp} °C. `
+
+  h2.innerHTML = cidadeResultado
 }
 // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Template_literals
 
 function comparar() {
   //O for está percorrendo a Array
   for (let index = 0; index < estados.length; index += 1) {
-    if (input.value === estados[index].cidade) {
+    if (input.value == estados[index].cidade) {
       cidadeResultado = estados[index].cidade
       tempResultado = estados[index].temp
       regiaoResultado = estados[index].regiao
       estadoResultado = estados[index].estado
-      mensagem(estados[index].cidade, estados[index].estado, estados[index].regiao, estados[index].temp)
-
+      mensagem(
+        estados[index].cidade,
+        estados[index].estado,
+        estados[index].regiao,
+        estados[index].temp
+      )
     }
   }
 }
