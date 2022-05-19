@@ -1,31 +1,30 @@
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
-		'X-RapidAPI-Key': '3014fae073msh0e1512ac676c0e6p148bc0jsn32d8a77afb81'
-	}
-};
+import { requestAPI } from './handleAPI.js'
 
-async function requestAPI(city) {
-	await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`, options)
-	.then((response) => response.json())
-	.then((response) => console.log(response))
-	.catch((err) => console.error(err));
-}
+start()
 
-console.log(requestAPI('sao paulo'));
-
-
-
-const input = document.querySelector('.input')
 const btn = document.querySelector('.btn')
 const city = document.querySelector('.cidade')
 
+btn.addEventListener('click', (e) => {
+	e.preventDefault()
+  const input = document.querySelector('.input').value
+  requestAPI(input)
+})
 async function start() {
 	const initial = await requestAPI('tokyo')
 	return initial
 }
 
-window.onload = {
-	start,
+export const renderAPI = (city) => {
+	const sessao = document.querySelector('.temp')
+	sessao.innerHTML = `  
+	<h1 class="tempo" id="cidade">${city.location.name} ${city.location.country}</h1>
+	<div class='imgDiv'>
+	<p class="tempo" id="tempc">${city.current.temp_c}°C</p>
+	<img alt='Clouds'src=${city.current.condition.icon}>
+	</div>
+	<p class="tempo" id="humidade">Humidity ${city.current.humidity}%</p>
+	<p class="tempo" id="vento">Wind ${city.current.wind_kph}Kph</p>
+	<p class="tempo" id="data"> Last updated ${city.current.last_updated}</p>
+	`
 }
